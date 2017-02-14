@@ -1,0 +1,171 @@
+<!Doctype html>
+<html lan="en" data-framework="backbonejs">
+	<head>
+		<link rel="icon" type="image/png" href="icons/favicon4.png" sizes="32x32" /> 
+		<meta-charset="utf-8">
+		<title>Photobox</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="3sjijdopgzy7e95"></script>
+	</head>
+		<body>
+
+
+
+<!-- image manager -->
+<div id="manager-container">
+		<div id="button-container"></div>
+		<a id="link"></a>
+	</div>
+
+	<script id="btn-template" type="text/template">
+		<div id="container"></div>
+    </script>
+
+
+
+ 	<!-- select location modal -->
+	<div id="modal-container"></div> 
+
+	<script id="location-template" type="text/template">
+		<div id="location-box">
+			<div id="input-container">
+				<input type="radio" id="architecture" name="modal" value="architecture">ARCHITECTURE
+				<input type="radio" id="comercial" name="modal" value="comercial">COMERCIAL
+				<input type="radio" id="portraits" name="modal" value="portraits">PORTRAITS
+			</div>
+				<div id="input-footer">
+					<div id="input-enter">ENTER</div>
+					<div id="input-cancel">CANCEL</div>
+				</div>
+			</div>
+	 </script>		 
+
+
+
+	<!-- main container & sidebar -->		   
+<div id="main-container"> 
+    <div id="side-bar">
+    	<div id="sidebar-box">
+    	<h3>PHOTOBOX</h3>
+    	 
+			<ul id="side-list">
+				  <li class="list-item"><a href="#home">HOME</a></li>
+				  <li class="list-item"><a href="#architecture">ARCHITECTURE / REAL ESTATE</a></li>
+				  <li class="list-item"><a href="#comercial">COMERCIAL</a></li>
+				  <li class="list-item"><a href="#portraits">PORTRAITS</a></li>
+				  <li class="list-item"><a href="#contact">CONTACT + ABOUT</a></li>
+				  <li class="list-item"><a href="#manager">DROPBOX IMAGE MANAGER</a></li>
+
+				   
+				</ul>
+	<span id="icons-container">
+	<a href="https://www.facebook.com/erick.oliva.750"><img src="icons/fb.ico" class="social-media"></a>
+	<a href="https://www.thumbtack.com"><img src="icons/th.png" class="social-media"></a>
+	<a href="https://www.smugmug.com/"><img src="icons/sm.png" class="social-media"></a>
+	<a href="https://www.youtube.com"><img src="icons/yt2.png" class="social-media"></a>
+	</span>
+		</div>
+	</div>
+</div>
+
+	
+
+<!-- home page -->
+<div id="home-page"></div>
+
+<script id="home-template" type="text/template">
+	<h1 id="front-title">PHOTOBOX SLIDER</h1>
+	<div id="home-image"> <img src="assets/photo-6.jpg"> </div>
+</script>	
+
+
+<!-- sliders -->
+<span id="portrait-slider"> </span>
+<span id="personal-slider"> </span>
+<span id="editorial-slider"> </span>
+
+<!-- image template -->
+<script id="portrait-template" type="text/template"> 
+	<div class="portrait-image"> <%= portrait_image %> 
+	<button class="thumb-btn">X</button>
+	</div> 
+</script> 
+
+
+  <!-- contact -->
+<div id="contact-container"></div>
+
+<script id="contact-template" type="text/template">
+	<div id="contact-image"> <img src="assets/contact.jpg"></div>
+	<div id="info-box">
+		<p class="contact-info">
+		   1200 Brickell Avenue Suite #2034
+		   <br>
+		   Miami, Florida 33131
+		   <br>
+		   TEL: (305)261-6060
+		   <br>
+		   E-mail: <a href="mailto:erickssen@gmail.com">email</a>
+		   <br>
+		   facebook: 
+		   <a href="https://www.facebook.com/erick.oliva.750">facebook</a>
+	    </p>   
+	</div>
+	<div id="about-box">
+		<p>
+		 I am a professional photographer with over thirty years experience specializing 
+		 in fashion photography,<br> landscapes,
+		 and portraits.<br> my images go thru an extensive and meticulous post 
+		 production process.  
+		</p>
+	</div>
+</script>
+
+
+
+ 
+		  
+	     
+
+ 
+
+
+
+
+
+
+<script src="lib/jquery.js"></script>
+<script src="lib/underscore.js"></script>
+<script src="lib/backbone.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/models.js"></script>
+<script src="js/collections.js"></script>
+<script src="js/views.js"></script>
+<script src="js/routers.js"></script>
+
+
+
+	<script>
+		new App.Router;
+		Backbone.history.start(); 
+		App.photos = new App.Collections.Photos();
+		App.photos.fetch();
+		new App.Views.App({collection: App.photos});
+	</script>
+
+
+
+
+
+
+	</body>
+</html>
+
+
+
+
+
+
+ 
